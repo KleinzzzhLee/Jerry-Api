@@ -1,0 +1,32 @@
+server:
+  port: 8099
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+spring:
+  main:
+    web-application-type: reactive
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api
+    username: root
+    password: 123456
+  cloud:
+    gateway:
+      routes:
+        - id: api
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/**
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol: ## 协议
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848

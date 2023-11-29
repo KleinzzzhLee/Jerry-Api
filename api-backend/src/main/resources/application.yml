@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: springboot-init
+  # DataSource Config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api
+    username: root
+    password: 123456
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # session 失效时间（分钟）
+  session:
+    timeout: 86400
+    store-type: redis
+  # redis 配置
+  redis:
+    port: 6379
+    host: localhost
+  mail:
+    host: smtp.163.com    # 表示网易邮箱
+    username: zzzhlee0930@163.com # 发送邮箱
+    password: MOMFPFHSSWKASZDQ  # 这是连接的密钥
+    default-encoding: UTF-8  # 设置邮件的编码格式
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true # 启用SMTP认证
+          starttls:
+            enabled: true # 启用SMTP认证
+            required: true # 必须采用加密链接
+server:
+  port: 7529
+  servlet:
+    context-path: /api
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+api:
+  client:
+    app-key: admin
+    app-secret: 123456
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol: ## 协议
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848
+
+
