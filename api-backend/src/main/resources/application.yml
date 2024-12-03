@@ -18,6 +18,7 @@ spring:
   redis:
     port: 6379
     host: localhost
+    database: 1
   mail:
     host: smtp.163.com    # 表示网易邮箱
     username: zzzhlee0930@163.com # 发送邮箱
@@ -58,4 +59,4 @@ dubbo:
     id: nacos-registry
     address: nacos://localhost:8848
 
-
+test: test
