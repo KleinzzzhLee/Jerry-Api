@@ -59,4 +59,4 @@ dubbo:
     id: nacos-registry
     address: nacos://localhost:8848
 
-test: test
+test: testzxvzxc
